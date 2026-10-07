@@ -1,0 +1,233 @@
+{
+  "courses": [
+    { "id": "toeic", "name": "TOEIC", "code": "TOEIC", "description": "Workplace English skills for confident test performance.", "color": "#5b5bd6", "order": 1 },
+    { "id": "ielts", "name": "IELTS", "code": "IELTS", "description": "Academic English across all four IELTS skills.", "color": "#0891b2", "order": 2 },
+    { "id": "vstep", "name": "VSTEP", "code": "VSTEP", "description": "Vietnamese Standardized Test of English Proficiency.", "color": "#d97706", "order": 3 },
+    { "id": "mixed-foundation", "name": "Mixed Foundation", "code": "MIXED", "description": "A practical foundation in general and exam English.", "color": "#059669", "order": 4 }
+  ],
+  "skills": [
+    { "id": "toeic-listening", "courseId": "toeic", "name": "Listening", "order": 1 },
+    { "id": "toeic-speaking", "courseId": "toeic", "name": "Speaking", "order": 2 },
+    { "id": "toeic-reading", "courseId": "toeic", "name": "Reading", "order": 3 },
+    { "id": "toeic-writing", "courseId": "toeic", "name": "Writing", "order": 4 },
+    { "id": "toeic-grammar", "courseId": "toeic", "name": "Grammar & Vocabulary", "order": 5 },
+    { "id": "ielts-listening", "courseId": "ielts", "name": "Listening", "order": 1 },
+    { "id": "ielts-speaking", "courseId": "ielts", "name": "Speaking", "order": 2 },
+    { "id": "ielts-reading", "courseId": "ielts", "name": "Reading", "order": 3 },
+    { "id": "ielts-writing", "courseId": "ielts", "name": "Writing", "order": 4 },
+    { "id": "ielts-grammar", "courseId": "ielts", "name": "Grammar & Vocabulary", "order": 5 },
+    { "id": "vstep-listening", "courseId": "vstep", "name": "Listening", "order": 1 },
+    { "id": "vstep-speaking", "courseId": "vstep", "name": "Speaking", "order": 2 },
+    { "id": "vstep-reading", "courseId": "vstep", "name": "Reading", "order": 3 },
+    { "id": "vstep-writing", "courseId": "vstep", "name": "Writing", "order": 4 },
+    { "id": "vstep-grammar", "courseId": "vstep", "name": "Grammar & Vocabulary", "order": 5 },
+    { "id": "mixed-listening", "courseId": "mixed-foundation", "name": "Listening", "order": 1 },
+    { "id": "mixed-speaking", "courseId": "mixed-foundation", "name": "Speaking", "order": 2 },
+    { "id": "mixed-reading", "courseId": "mixed-foundation", "name": "Reading", "order": 3 },
+    { "id": "mixed-writing", "courseId": "mixed-foundation", "name": "Writing", "order": 4 },
+    { "id": "mixed-grammar", "courseId": "mixed-foundation", "name": "Grammar & Vocabulary", "order": 5 }
+  ],
+  "units": [
+    {
+      "id": "toeic-reading-parts-of-speech",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "title": "Unit 1: Parts of Speech",
+      "description": "Recognize how nouns, verbs, adjectives and adverbs function in TOEIC sentences.",
+      "order": 1,
+      "activityCount": 10,
+      "aiPracticeConfig": { "enabled": false, "level": "A2-B1", "targets": ["word forms", "sentence structure"], "allowedActivityTypes": ["multiple_choice", "fill_blank"], "difficultyRange": "foundation-intermediate" }
+    },
+    {
+      "id": "ielts-reading-main-ideas",
+      "courseId": "ielts",
+      "skillId": "ielts-reading",
+      "title": "Unit 1: Finding Main Ideas",
+      "description": "Preview an academic passage and identify its controlling idea.",
+      "order": 1,
+      "activityCount": 1,
+      "aiPracticeConfig": { "enabled": false, "level": "B1-B2", "targets": ["skimming", "main ideas"], "allowedActivityTypes": ["reading", "short_answer"], "difficultyRange": "intermediate" }
+    },
+    {
+      "id": "vstep-speaking-introduction",
+      "courseId": "vstep",
+      "skillId": "vstep-speaking",
+      "title": "Unit 1: Confident Introductions",
+      "description": "Structure a clear, natural personal introduction for VSTEP speaking.",
+      "order": 1,
+      "activityCount": 1,
+      "aiPracticeConfig": { "enabled": false, "level": "B1", "targets": ["fluency", "personal information"], "allowedActivityTypes": ["speaking_prompt"], "difficultyRange": "foundation-intermediate" }
+    },
+    {
+      "id": "mixed-grammar-sentence-basics",
+      "courseId": "mixed-foundation",
+      "skillId": "mixed-grammar",
+      "title": "Unit 1: Sentence Foundations",
+      "description": "Build reliable English sentences with subjects, verbs and complements.",
+      "order": 1,
+      "activityCount": 1,
+      "aiPracticeConfig": { "enabled": false, "level": "A2", "targets": ["sentence structure"], "allowedActivityTypes": ["teaching_slide", "fill_blank"], "difficultyRange": "foundation" }
+    }
+  ],
+  "activities": [
+    {
+      "id": "pos-01",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "teaching_slide",
+      "title": "Four jobs words can do",
+      "instructions": "Read the overview and notice where each word class appears.",
+      "content": "NOUNS name people, places, things or ideas. VERBS express actions or states. ADJECTIVES describe nouns. ADVERBS describe verbs, adjectives or other adverbs.",
+      "order": 1
+    },
+    {
+      "id": "pos-02",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "reading",
+      "title": "See the pattern",
+      "instructions": "Read the sentence and compare the related word forms.",
+      "content": "The efficient assistant organized the files quickly. Assistant is a noun; organized is a verb; efficient is an adjective; quickly is an adverb.",
+      "order": 2
+    },
+    {
+      "id": "pos-03",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "multiple_choice",
+      "title": "Identify the word class",
+      "instructions": "In the sentence “The manager spoke confidently,” what kind of word is confidently?",
+      "content": "Choose the word class that best describes “confidently.”",
+      "options": ["Noun", "Verb", "Adjective", "Adverb"],
+      "correctAnswer": "Adverb",
+      "explanation": "Confidently describes how the manager spoke, so it modifies the verb and is an adverb.",
+      "order": 3
+    },
+    {
+      "id": "pos-04",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "multiple_choice",
+      "title": "Choose the correct form",
+      "instructions": "Choose the best word to complete the sentence.",
+      "content": "Our customer service team responds ______ to all inquiries.",
+      "options": ["prompt", "promptly", "promptness", "prompted"],
+      "correctAnswer": "promptly",
+      "explanation": "The blank modifies the verb responds, so the adverb promptly is required.",
+      "order": 4
+    },
+    {
+      "id": "pos-05",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "fill_blank",
+      "title": "Complete the sentence",
+      "instructions": "Type the correct form of the word in brackets.",
+      "content": "The new scheduling software has improved office ______. (efficient)",
+      "correctAnswer": "efficiency",
+      "explanation": "After the verb improved, the sentence needs the noun efficiency.",
+      "order": 5
+    },
+    {
+      "id": "pos-06",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "multiple_choice",
+      "title": "TOEIC sentence completion",
+      "instructions": "Select the option that makes the sentence grammatically correct.",
+      "content": "Employees must obtain written ______ before purchasing new equipment.",
+      "options": ["approve", "approved", "approval", "approvingly"],
+      "correctAnswer": "approval",
+      "explanation": "The adjective written needs to modify a noun. Approval is the noun form.",
+      "order": 6
+    },
+    {
+      "id": "pos-07",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "short_answer",
+      "title": "Repair the error",
+      "instructions": "Rewrite the incorrect word in its correct form.",
+      "content": "The board was complete satisfied with the quarterly results. Which word should replace “complete”?",
+      "correctAnswer": "completely",
+      "explanation": "An adverb is needed to modify the adjective satisfied.",
+      "order": 7
+    },
+    {
+      "id": "pos-08",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "teaching_slide",
+      "title": "Mini review: position clues",
+      "instructions": "Use position clues when you are unsure of a word form.",
+      "content": "Before a noun, expect an adjective. After an article, expect a noun or adjective + noun. After a linking verb, expect an adjective. To describe an action, use an adverb.",
+      "order": 8
+    },
+    {
+      "id": "pos-09",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "multiple_choice",
+      "title": "Short quiz",
+      "instructions": "Choose the best answer.",
+      "content": "The marketing department created an extremely ______ campaign.",
+      "options": ["effect", "effective", "effectively", "effectiveness"],
+      "correctAnswer": "effective",
+      "explanation": "The blank describes the noun campaign, so the adjective effective is correct.",
+      "order": 9
+    },
+    {
+      "id": "pos-10",
+      "courseId": "toeic",
+      "skillId": "toeic-reading",
+      "unitId": "toeic-reading-parts-of-speech",
+      "type": "teaching_slide",
+      "title": "Lesson summary",
+      "instructions": "Check that you can apply all four ideas before continuing.",
+      "content": "You can now identify the four major word classes, use sentence position as a clue, select the correct related word form, and explain why an answer fits a TOEIC sentence.",
+      "order": 10
+    },
+    {
+      "id": "ielts-main-ideas-01",
+      "courseId": "ielts",
+      "skillId": "ielts-reading",
+      "unitId": "ielts-reading-main-ideas",
+      "type": "reading",
+      "title": "Skim before you scan",
+      "instructions": "Read the title and first sentence of each paragraph to predict the main idea.",
+      "content": "Urban gardens are becoming an important part of city planning. They provide fresh food, cool public spaces and places where neighbors can meet.",
+      "order": 1
+    },
+    {
+      "id": "vstep-introduction-01",
+      "courseId": "vstep",
+      "skillId": "vstep-speaking",
+      "unitId": "vstep-speaking-introduction",
+      "type": "speaking_prompt",
+      "title": "A clear 30-second introduction",
+      "instructions": "Prepare, then speak for 30 seconds without reading.",
+      "content": "Introduce yourself, say what you study or do, and describe one reason you are learning English.",
+      "order": 1
+    },
+    {
+      "id": "mixed-sentence-basics-01",
+      "courseId": "mixed-foundation",
+      "skillId": "mixed-grammar",
+      "unitId": "mixed-grammar-sentence-basics",
+      "type": "teaching_slide",
+      "title": "The sentence core",
+      "instructions": "Find the subject and the main verb in each example.",
+      "content": "A complete English sentence normally needs a subject and a finite verb: “The class starts.” Extra information can be added after this reliable core.",
+      "order": 1
+    }
+  ]
+}

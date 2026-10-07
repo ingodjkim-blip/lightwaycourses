@@ -1,0 +1,137 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function profile() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isAdmin() {
+      return signedIn() && profile().active == true && profile().role == "admin";
+    }
+
+    function isTeacher() {
+      return signedIn() && profile().active == true && profile().role == "teacher";
+    }
+
+    function isStudent() {
+      return signedIn() && profile().active == true && profile().role == "student";
+    }
+
+    function classData(classId) {
+      return get(/databases/$(database)/documents/classes/$(classId)).data;
+    }
+
+    function sessionData(sessionId) {
+      return get(/databases/$(database)/documents/classSessions/$(sessionId)).data;
+    }
+
+    function canReadClass(classId) {
+      return isAdmin()
+        || (isTeacher() && classData(classId).teacherId == request.auth.uid)
+        || (isStudent() && request.auth.uid in classData(classId).studentIds);
+    }
+
+    match /users/{userId} {
+      allow read: if isAdmin() || (signedIn() && request.auth.uid == userId) || isTeacher();
+      allow create: if signedIn()
+        && request.auth.uid == userId
+        && request.resource.data.role == "student"
+        && request.resource.data.active == true;
+      allow update: if isAdmin()
+        || (signedIn()
+          && request.auth.uid == userId
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["fullName"]));
+      allow delete: if isAdmin();
+    }
+
+    match /courses/{courseId} {
+      allow read: if signedIn() && profile().active == true;
+      allow write: if isAdmin();
+    }
+
+    match /skills/{skillId} {
+      allow read: if signedIn() && profile().active == true;
+      allow write: if isAdmin();
+    }
+
+    match /units/{unitId} {
+      allow read: if signedIn() && profile().active == true;
+      allow write: if isAdmin();
+    }
+
+    match /activities/{activityId} {
+      allow read: if signedIn() && profile().active == true;
+      allow write: if isAdmin();
+    }
+
+    match /classes/{classId} {
+      allow read: if isAdmin()
+        || (isTeacher() && resource.data.teacherId == request.auth.uid)
+        || (isStudent() && request.auth.uid in resource.data.studentIds);
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin()
+        || (isTeacher()
+          && resource.data.teacherId == request.auth.uid
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["activeSessionId", "updatedAt"]));
+    }
+
+    match /classSessions/{sessionId} {
+      allow read: if canReadClass(resource.data.classId);
+      allow create: if isTeacher()
+        && request.resource.data.teacherId == request.auth.uid
+        && classData(request.resource.data.classId).teacherId == request.auth.uid
+        && request.resource.data.status == "active"
+        && request.resource.data.mode == "follow";
+      allow update: if isAdmin()
+        || (isTeacher()
+          && resource.data.teacherId == request.auth.uid
+          && request.resource.data.teacherId == resource.data.teacherId
+          && request.resource.data.classId == resource.data.classId
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+            "status", "mode", "locked", "currentCourseId", "currentSkillId",
+            "currentUnitId", "currentActivityId", "revealedActivityIds",
+            "coveredActivityIds", "endedAt", "updatedAt"
+          ]));
+      allow delete: if isAdmin();
+
+      match /participants/{studentId} {
+        allow read: if isAdmin()
+          || (isTeacher() && sessionData(sessionId).teacherId == request.auth.uid)
+          || (isStudent() && request.auth.uid == studentId);
+        allow create, update: if isStudent()
+          && request.auth.uid == studentId
+          && sessionData(sessionId).status == "active"
+          && request.auth.uid in classData(sessionData(sessionId).classId).studentIds
+          && request.resource.data.studentId == request.auth.uid
+          && request.resource.data.keys().hasOnly(["studentId", "fullName", "status", "joinedAt", "lastSeen"]);
+        allow delete: if isAdmin();
+      }
+
+      match /responses/{responseId} {
+        allow read: if isAdmin()
+          || (isTeacher() && sessionData(sessionId).teacherId == request.auth.uid)
+          || (isStudent() && resource.data.studentId == request.auth.uid);
+        allow create, update: if isStudent()
+          && request.resource.data.studentId == request.auth.uid
+          && sessionData(sessionId).status == "active"
+          && request.auth.uid in classData(sessionData(sessionId).classId).studentIds
+          && request.resource.data.keys().hasOnly(["studentId", "studentName", "activityId", "answer", "correct", "submittedAt"])
+          && request.resource.data.correct == (request.resource.data.answer == get(/databases/$(database)/documents/activities/$(request.resource.data.activityId)).data.correctAnswer);
+        allow delete: if isAdmin();
+      }
+    }
+
+    match /userProgress/{studentId}/units/{unitId} {
+      allow read: if isAdmin() || isTeacher() || (isStudent() && request.auth.uid == studentId);
+      allow create, update: if isStudent()
+        && request.auth.uid == studentId
+        && request.resource.data.keys().hasOnly(["completedActivityIds", "lastActivityId", "score", "updatedAt"]);
+      allow delete: if isAdmin();
+    }
+  }
+}
