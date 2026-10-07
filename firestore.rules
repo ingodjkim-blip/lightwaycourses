@@ -30,6 +30,27 @@ service cloud.firestore {
       return get(/databases/$(database)/documents/classSessions/$(sessionId)).data;
     }
 
+    function validResponse(sessionId, responseId) {
+      let data = request.resource.data;
+      let session = sessionData(sessionId);
+      let activity = get(/databases/$(database)/documents/activities/$(data.activityId)).data;
+      return data.keys().hasAll(["studentId", "studentName", "activityId", "answer", "correct", "submittedAt"])
+        && data.keys().hasOnly(["studentId", "studentName", "activityId", "answer", "correct", "submittedAt"])
+        && data.studentId == request.auth.uid
+        && responseId == request.auth.uid + "_" + data.activityId
+        && data.studentName == profile().fullName
+        && data.answer is string && data.answer.trim().size() > 0 && data.answer.size() <= 4000
+        && data.correct is bool && data.submittedAt == request.time
+        && session.status == "active"
+        && request.auth.uid in classData(session.classId).studentIds
+        && (session.mode == "free" || activity.unitId == session.currentUnitId)
+        && !(data.activityId in session.revealedActivityIds)
+        && activity.type in ["multiple_choice", "fill_blank", "short_answer", "writing_prompt"]
+        && (activity.type != "multiple_choice" || data.answer in activity.options)
+        && data.correct == ("correctAnswer" in activity
+          && data.answer.trim().lower() == activity.correctAnswer.trim().lower());
+    }
+
     function canReadClass(classId) {
       return isAdmin()
         || (isTeacher() && classData(classId).teacherId == request.auth.uid)
@@ -81,7 +102,9 @@ service cloud.firestore {
     }
 
     match /classSessions/{sessionId} {
-      allow read: if canReadClass(resource.data.classId);
+      allow read: if isAdmin()
+        || (isTeacher() && resource.data.teacherId == request.auth.uid)
+        || (isStudent() && canReadClass(resource.data.classId));
       allow create: if isTeacher()
         && request.resource.data.teacherId == request.auth.uid
         && classData(request.resource.data.classId).teacherId == request.auth.uid
@@ -90,6 +113,10 @@ service cloud.firestore {
       allow update: if isAdmin()
         || (isTeacher()
           && resource.data.teacherId == request.auth.uid
+          && classData(resource.data.classId).teacherId == request.auth.uid
+          && resource.data.status == "active"
+          && request.resource.data.status in ["active", "ended"]
+          && request.resource.data.mode in ["follow", "guided", "free"]
           && request.resource.data.teacherId == resource.data.teacherId
           && request.resource.data.classId == resource.data.classId
           && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
@@ -116,12 +143,9 @@ service cloud.firestore {
         allow read: if isAdmin()
           || (isTeacher() && sessionData(sessionId).teacherId == request.auth.uid)
           || (isStudent() && resource.data.studentId == request.auth.uid);
-        allow create, update: if isStudent()
-          && request.resource.data.studentId == request.auth.uid
-          && sessionData(sessionId).status == "active"
-          && request.auth.uid in classData(sessionData(sessionId).classId).studentIds
-          && request.resource.data.keys().hasOnly(["studentId", "studentName", "activityId", "answer", "correct", "submittedAt"])
-          && request.resource.data.correct == (request.resource.data.answer == get(/databases/$(database)/documents/activities/$(request.resource.data.activityId)).data.correctAnswer);
+        // One immutable first attempt per student/activity. No overwrite or alias IDs.
+        allow create: if isStudent() && validResponse(sessionId, responseId);
+        allow update: if false;
         allow delete: if isAdmin();
       }
     }
@@ -130,7 +154,11 @@ service cloud.firestore {
       allow read: if isAdmin() || isTeacher() || (isStudent() && request.auth.uid == studentId);
       allow create, update: if isStudent()
         && request.auth.uid == studentId
-        && request.resource.data.keys().hasOnly(["completedActivityIds", "lastActivityId", "score", "updatedAt"]);
+        && request.resource.data.keys().hasOnly(["completedActivityIds", "lastActivityId", "score", "answers", "updatedAt"])
+        && request.resource.data.completedActivityIds is list
+        && request.resource.data.lastActivityId is string
+        && request.resource.data.score is int && request.resource.data.score >= 0
+        && (!('answers' in request.resource.data) || request.resource.data.answers is map);
       allow delete: if isAdmin();
     }
   }
