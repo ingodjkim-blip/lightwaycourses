@@ -31,3 +31,6 @@ students.json
 users-export.json
 .DS_Store
 Thumbs.db
+
+playwright-report/
+test-results/

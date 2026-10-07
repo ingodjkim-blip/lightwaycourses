@@ -44,8 +44,7 @@ export function TeacherApp({ profile, curriculum }: { profile: UserProfile; curr
       setClassroomId(id);
     } catch (nextError) {
       setError(friendlyFirebaseError(nextError));
-      setBusy(false);
-    }
+    } finally { setBusy(false); }
   }
 
   if (classroomId) return <TeacherClassroom sessionId={classroomId} curriculum={curriculum} onExit={() => setClassroomId(null)} />;

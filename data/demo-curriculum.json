@@ -1,31 +1,159 @@
 {
   "courses": [
-    { "id": "toeic", "name": "TOEIC", "code": "TOEIC", "description": "Workplace English skills for confident test performance.", "color": "#5b5bd6", "order": 1 },
-    { "id": "ielts", "name": "IELTS", "code": "IELTS", "description": "Academic English across all four IELTS skills.", "color": "#0891b2", "order": 2 },
-    { "id": "vstep", "name": "VSTEP", "code": "VSTEP", "description": "Vietnamese Standardized Test of English Proficiency.", "color": "#d97706", "order": 3 },
-    { "id": "mixed-foundation", "name": "Mixed Foundation", "code": "MIXED", "description": "A practical foundation in general and exam English.", "color": "#059669", "order": 4 }
+    {
+      "id": "toeic",
+      "name": "TOEIC",
+      "code": "TOEIC",
+      "description": "Workplace English skills for confident test performance.",
+      "color": "#5b5bd6",
+      "order": 1
+    },
+    {
+      "id": "ielts",
+      "name": "IELTS",
+      "code": "IELTS",
+      "description": "Academic English across all four IELTS skills.",
+      "color": "#0891b2",
+      "order": 2
+    },
+    {
+      "id": "vstep",
+      "name": "VSTEP",
+      "code": "VSTEP",
+      "description": "Vietnamese Standardized Test of English Proficiency.",
+      "color": "#d97706",
+      "order": 3
+    },
+    {
+      "id": "mixed-foundation",
+      "name": "Mixed Foundation",
+      "code": "MIXED",
+      "description": "A practical foundation in general and exam English.",
+      "color": "#059669",
+      "order": 4
+    }
   ],
   "skills": [
-    { "id": "toeic-listening", "courseId": "toeic", "name": "Listening", "order": 1 },
-    { "id": "toeic-speaking", "courseId": "toeic", "name": "Speaking", "order": 2 },
-    { "id": "toeic-reading", "courseId": "toeic", "name": "Reading", "order": 3 },
-    { "id": "toeic-writing", "courseId": "toeic", "name": "Writing", "order": 4 },
-    { "id": "toeic-grammar", "courseId": "toeic", "name": "Grammar & Vocabulary", "order": 5 },
-    { "id": "ielts-listening", "courseId": "ielts", "name": "Listening", "order": 1 },
-    { "id": "ielts-speaking", "courseId": "ielts", "name": "Speaking", "order": 2 },
-    { "id": "ielts-reading", "courseId": "ielts", "name": "Reading", "order": 3 },
-    { "id": "ielts-writing", "courseId": "ielts", "name": "Writing", "order": 4 },
-    { "id": "ielts-grammar", "courseId": "ielts", "name": "Grammar & Vocabulary", "order": 5 },
-    { "id": "vstep-listening", "courseId": "vstep", "name": "Listening", "order": 1 },
-    { "id": "vstep-speaking", "courseId": "vstep", "name": "Speaking", "order": 2 },
-    { "id": "vstep-reading", "courseId": "vstep", "name": "Reading", "order": 3 },
-    { "id": "vstep-writing", "courseId": "vstep", "name": "Writing", "order": 4 },
-    { "id": "vstep-grammar", "courseId": "vstep", "name": "Grammar & Vocabulary", "order": 5 },
-    { "id": "mixed-listening", "courseId": "mixed-foundation", "name": "Listening", "order": 1 },
-    { "id": "mixed-speaking", "courseId": "mixed-foundation", "name": "Speaking", "order": 2 },
-    { "id": "mixed-reading", "courseId": "mixed-foundation", "name": "Reading", "order": 3 },
-    { "id": "mixed-writing", "courseId": "mixed-foundation", "name": "Writing", "order": 4 },
-    { "id": "mixed-grammar", "courseId": "mixed-foundation", "name": "Grammar & Vocabulary", "order": 5 }
+    {
+      "id": "toeic-listening",
+      "courseId": "toeic",
+      "name": "Listening",
+      "order": 1
+    },
+    {
+      "id": "toeic-speaking",
+      "courseId": "toeic",
+      "name": "Speaking",
+      "order": 2
+    },
+    {
+      "id": "toeic-reading",
+      "courseId": "toeic",
+      "name": "Reading",
+      "order": 3
+    },
+    {
+      "id": "toeic-writing",
+      "courseId": "toeic",
+      "name": "Writing",
+      "order": 4
+    },
+    {
+      "id": "toeic-grammar",
+      "courseId": "toeic",
+      "name": "Grammar & Vocabulary",
+      "order": 5
+    },
+    {
+      "id": "ielts-listening",
+      "courseId": "ielts",
+      "name": "Listening",
+      "order": 1
+    },
+    {
+      "id": "ielts-speaking",
+      "courseId": "ielts",
+      "name": "Speaking",
+      "order": 2
+    },
+    {
+      "id": "ielts-reading",
+      "courseId": "ielts",
+      "name": "Reading",
+      "order": 3
+    },
+    {
+      "id": "ielts-writing",
+      "courseId": "ielts",
+      "name": "Writing",
+      "order": 4
+    },
+    {
+      "id": "ielts-grammar",
+      "courseId": "ielts",
+      "name": "Grammar & Vocabulary",
+      "order": 5
+    },
+    {
+      "id": "vstep-listening",
+      "courseId": "vstep",
+      "name": "Listening",
+      "order": 1
+    },
+    {
+      "id": "vstep-speaking",
+      "courseId": "vstep",
+      "name": "Speaking",
+      "order": 2
+    },
+    {
+      "id": "vstep-reading",
+      "courseId": "vstep",
+      "name": "Reading",
+      "order": 3
+    },
+    {
+      "id": "vstep-writing",
+      "courseId": "vstep",
+      "name": "Writing",
+      "order": 4
+    },
+    {
+      "id": "vstep-grammar",
+      "courseId": "vstep",
+      "name": "Grammar & Vocabulary",
+      "order": 5
+    },
+    {
+      "id": "mixed-listening",
+      "courseId": "mixed-foundation",
+      "name": "Listening",
+      "order": 1
+    },
+    {
+      "id": "mixed-speaking",
+      "courseId": "mixed-foundation",
+      "name": "Speaking",
+      "order": 2
+    },
+    {
+      "id": "mixed-reading",
+      "courseId": "mixed-foundation",
+      "name": "Reading",
+      "order": 3
+    },
+    {
+      "id": "mixed-writing",
+      "courseId": "mixed-foundation",
+      "name": "Writing",
+      "order": 4
+    },
+    {
+      "id": "mixed-grammar",
+      "courseId": "mixed-foundation",
+      "name": "Grammar & Vocabulary",
+      "order": 5
+    }
   ],
   "units": [
     {
@@ -33,10 +161,22 @@
       "courseId": "toeic",
       "skillId": "toeic-reading",
       "title": "Unit 1: Parts of Speech",
-      "description": "Recognize how nouns, verbs, adjectives and adverbs function in TOEIC sentences.",
+      "description": "A 35–45 minute A2–B1 lesson: identify nouns, verbs, adjectives and adverbs; use sentence-position clues; choose and explain word forms in original workplace sentences. Includes six scored practice questions and a review.",
       "order": 1,
       "activityCount": 10,
-      "aiPracticeConfig": { "enabled": false, "level": "A2-B1", "targets": ["word forms", "sentence structure"], "allowedActivityTypes": ["multiple_choice", "fill_blank"], "difficultyRange": "foundation-intermediate" }
+      "aiPracticeConfig": {
+        "enabled": false,
+        "level": "A2-B1",
+        "targets": [
+          "word forms",
+          "sentence structure"
+        ],
+        "allowedActivityTypes": [
+          "multiple_choice",
+          "fill_blank"
+        ],
+        "difficultyRange": "foundation-intermediate"
+      }
     },
     {
       "id": "ielts-reading-main-ideas",
@@ -46,7 +186,19 @@
       "description": "Preview an academic passage and identify its controlling idea.",
       "order": 1,
       "activityCount": 1,
-      "aiPracticeConfig": { "enabled": false, "level": "B1-B2", "targets": ["skimming", "main ideas"], "allowedActivityTypes": ["reading", "short_answer"], "difficultyRange": "intermediate" }
+      "aiPracticeConfig": {
+        "enabled": false,
+        "level": "B1-B2",
+        "targets": [
+          "skimming",
+          "main ideas"
+        ],
+        "allowedActivityTypes": [
+          "reading",
+          "short_answer"
+        ],
+        "difficultyRange": "intermediate"
+      }
     },
     {
       "id": "vstep-speaking-introduction",
@@ -56,7 +208,18 @@
       "description": "Structure a clear, natural personal introduction for VSTEP speaking.",
       "order": 1,
       "activityCount": 1,
-      "aiPracticeConfig": { "enabled": false, "level": "B1", "targets": ["fluency", "personal information"], "allowedActivityTypes": ["speaking_prompt"], "difficultyRange": "foundation-intermediate" }
+      "aiPracticeConfig": {
+        "enabled": false,
+        "level": "B1",
+        "targets": [
+          "fluency",
+          "personal information"
+        ],
+        "allowedActivityTypes": [
+          "speaking_prompt"
+        ],
+        "difficultyRange": "foundation-intermediate"
+      }
     },
     {
       "id": "mixed-grammar-sentence-basics",
@@ -66,7 +229,18 @@
       "description": "Build reliable English sentences with subjects, verbs and complements.",
       "order": 1,
       "activityCount": 1,
-      "aiPracticeConfig": { "enabled": false, "level": "A2", "targets": ["sentence structure"], "allowedActivityTypes": ["teaching_slide", "fill_blank"], "difficultyRange": "foundation" }
+      "aiPracticeConfig": {
+        "enabled": false,
+        "level": "A2",
+        "targets": [
+          "sentence structure"
+        ],
+        "allowedActivityTypes": [
+          "teaching_slide",
+          "fill_blank"
+        ],
+        "difficultyRange": "foundation"
+      }
     }
   ],
   "activities": [
@@ -76,9 +250,9 @@
       "skillId": "toeic-reading",
       "unitId": "toeic-reading-parts-of-speech",
       "type": "teaching_slide",
-      "title": "Four jobs words can do",
-      "instructions": "Read the overview and notice where each word class appears.",
-      "content": "NOUNS name people, places, things or ideas. VERBS express actions or states. ADJECTIVES describe nouns. ADVERBS describe verbs, adjectives or other adverbs.",
+      "title": "Four word classes, four jobs",
+      "instructions": "Start here. In class, discuss the examples with a partner. Studying alone, say your answers aloud before moving on.",
+      "content": "GOALS\nBy the end, you can name the job a word does, use nearby words to choose its form, and explain your choice in a workplace sentence. Allow 35–45 minutes for all ten activities.\n\nWARM-UP\n“The assistant organized the files quickly.” Which word names a person? Which expresses the action? Which tells you how the action happened?\n\nNOUN: a person, thing or idea — assistant, file, efficiency.\nVERB: an action or state — organize, work, seem.\nADJECTIVE: describes a noun or follows a linking verb — an efficient assistant; the assistant is efficient.\nADVERB: modifies a verb, adjective or another adverb — works efficiently; extremely efficient.\n\nWarm-up check: assistant = noun; organized = verb; quickly = adverb. Meaning helps, but the word’s position gives you a useful grammar clue.",
       "order": 1
     },
     {
@@ -87,9 +261,9 @@
       "skillId": "toeic-reading",
       "unitId": "toeic-reading-parts-of-speech",
       "type": "reading",
-      "title": "See the pattern",
-      "instructions": "Read the sentence and compare the related word forms.",
-      "content": "The efficient assistant organized the files quickly. Assistant is a noun; organized is a verb; efficient is an adjective; quickly is an adverb.",
+      "title": "Read a workplace update",
+      "instructions": "Read the original memo. Find a noun, a verb, an adjective and an adverb. Then compare your choices with the worked examples.",
+      "content": "TEAM UPDATE\nOur efficient assistant organized the new files yesterday. She checked every folder carefully. Her careful review improved the accuracy of the records. The system now works efficiently.\n\nWORKED EXAMPLES\n“assistant” is a noun: it names the person doing the work.\n“organized” is a verb: it tells us what the assistant did.\n“efficient” is an adjective: it describes assistant.\n“carefully” is an adverb: it describes how she checked.\n“accuracy” is a noun: it names the quality that improved.\n\nWORD FAMILY\nefficiency (noun) → efficient (adjective) → efficiently (adverb). Do not pick a form just because you recognize its meaning: choose the form that fits its job.\n\nNotice: careful describes the noun review, while carefully describes the verb checked. A word ending can help, but it is not proof: friendly is usually an adjective, and fast can be an adjective or an adverb.",
       "order": 2
     },
     {
@@ -101,9 +275,14 @@
       "title": "Identify the word class",
       "instructions": "In the sentence “The manager spoke confidently,” what kind of word is confidently?",
       "content": "Choose the word class that best describes “confidently.”",
-      "options": ["Noun", "Verb", "Adjective", "Adverb"],
+      "options": [
+        "Noun",
+        "Verb",
+        "Adjective",
+        "Adverb"
+      ],
       "correctAnswer": "Adverb",
-      "explanation": "Confidently describes how the manager spoke, so it modifies the verb and is an adverb.",
+      "explanation": "Confidently tells us how the manager spoke, so it modifies the verb and is an adverb. Manager is the noun and spoke is the verb. An adjective would describe the manager: “The confident manager spoke.”",
       "order": 3
     },
     {
@@ -115,9 +294,14 @@
       "title": "Choose the correct form",
       "instructions": "Choose the best word to complete the sentence.",
       "content": "Our customer service team responds ______ to all inquiries.",
-      "options": ["prompt", "promptly", "promptness", "prompted"],
+      "options": [
+        "prompt",
+        "promptly",
+        "promptness",
+        "prompted"
+      ],
       "correctAnswer": "promptly",
-      "explanation": "The blank modifies the verb responds, so the adverb promptly is required.",
+      "explanation": "Promptly is the adverb describing how the team responds. Prompt is an adjective (“a prompt reply”); promptness is a noun (“their promptness”); prompted is a verb form. The blank modifies responds, so promptly fits.",
       "order": 4
     },
     {
@@ -130,7 +314,7 @@
       "instructions": "Type the correct form of the word in brackets.",
       "content": "The new scheduling software has improved office ______. (efficient)",
       "correctAnswer": "efficiency",
-      "explanation": "After the verb improved, the sentence needs the noun efficiency.",
+      "explanation": "Efficiency is the noun naming what has improved. Office modifies that noun. Efficient is an adjective and efficiently is an adverb; neither can serve as the object of improved here. The complete phrase is “improved office efficiency.”",
       "order": 5
     },
     {
@@ -142,9 +326,14 @@
       "title": "TOEIC sentence completion",
       "instructions": "Select the option that makes the sentence grammatically correct.",
       "content": "Employees must obtain written ______ before purchasing new equipment.",
-      "options": ["approve", "approved", "approval", "approvingly"],
+      "options": [
+        "approve",
+        "approved",
+        "approval",
+        "approvingly"
+      ],
       "correctAnswer": "approval",
-      "explanation": "The adjective written needs to modify a noun. Approval is the noun form.",
+      "explanation": "Approval is a noun and is the object of obtain; written describes that noun. Approve is a verb, approved is a past-tense/participle form, and approvingly is an adverb. Use the position clue: obtain + adjective + noun.",
       "order": 6
     },
     {
@@ -157,7 +346,7 @@
       "instructions": "Rewrite the incorrect word in its correct form.",
       "content": "The board was complete satisfied with the quarterly results. Which word should replace “complete”?",
       "correctAnswer": "completely",
-      "explanation": "An adverb is needed to modify the adjective satisfied.",
+      "explanation": "Completely is the adverb modifying the adjective satisfied. Complete is an adjective, which can describe a noun (“a complete report”) but cannot modify satisfied here. The corrected sentence is “The board was completely satisfied with the quarterly results.”",
       "order": 7
     },
     {
@@ -166,9 +355,9 @@
       "skillId": "toeic-reading",
       "unitId": "toeic-reading-parts-of-speech",
       "type": "teaching_slide",
-      "title": "Mini review: position clues",
-      "instructions": "Use position clues when you are unsure of a word form.",
-      "content": "Before a noun, expect an adjective. After an article, expect a noun or adjective + noun. After a linking verb, expect an adjective. To describe an action, use an adverb.",
+      "title": "Review the clues, avoid the traps",
+      "instructions": "Pause and explain one rule using your own example. In class, share it with a partner. Alone, write or say a sentence before continuing.",
+      "content": "A FOUR-STEP CHECK\n1. Read the whole sentence for meaning.\n2. Find the words immediately before and after the blank.\n3. Decide the job: noun, verb, adjective or adverb.\n4. Choose the form and read the completed sentence again.\n\nPOSITION CLUES\nArticle + adjective + noun: “an efficient team.”\nVerb + noun object: “improve efficiency.”\nAdverb + adjective: “extremely efficient.”\nVerb + adverb: “work efficiently.”\nLinking verb + adjective: “The team seems efficient.”\n\nCOMMON TRAPS\nAn article does not always sit directly before a noun: an extremely efficient team is also correct.\nNot every -ly word is an adverb: a friendly colleague uses an adjective.\nAfter be or seem, describe the subject: “The report is complete,” not “The report is completely.”\n\nSELF-CHECK\nExplain the difference between “a careful review” and “review carefully.” Answer: careful describes the noun review; carefully describes the action review.",
       "order": 8
     },
     {
@@ -178,11 +367,16 @@
       "unitId": "toeic-reading-parts-of-speech",
       "type": "multiple_choice",
       "title": "Short quiz",
-      "instructions": "Choose the best answer.",
+      "instructions": "Final check: choose the form that fits, then explain which word the blank describes.",
       "content": "The marketing department created an extremely ______ campaign.",
-      "options": ["effect", "effective", "effectively", "effectiveness"],
+      "options": [
+        "effect",
+        "effective",
+        "effectively",
+        "effectiveness"
+      ],
       "correctAnswer": "effective",
-      "explanation": "The blank describes the noun campaign, so the adjective effective is correct.",
+      "explanation": "Effective is the adjective describing the noun campaign. Extremely is an adverb modifying effective. Effect and effectiveness are nouns; effectively is an adverb. The pattern is adverb + adjective + noun: “an extremely effective campaign.”",
       "order": 9
     },
     {
@@ -191,9 +385,9 @@
       "skillId": "toeic-reading",
       "unitId": "toeic-reading-parts-of-speech",
       "type": "teaching_slide",
-      "title": "Lesson summary",
-      "instructions": "Check that you can apply all four ideas before continuing.",
-      "content": "You can now identify the four major word classes, use sentence position as a clue, select the correct related word form, and explain why an answer fits a TOEIC sentence.",
+      "title": "Unit review and next practice",
+      "instructions": "Review the six scored answers and their explanations. In self-study, mark this final activity complete to see your first-attempt score.",
+      "content": "CAN YOU DO THESE THREE THINGS?\n• Identify the job a word performs in a sentence.\n• Use the position of a blank to choose a word form.\n• Explain why an answer fits instead of relying only on its ending.\n\nRETRIEVAL CHECK\nWithout looking back, name the noun, adjective and adverb in this family: efficiency → efficient → efficiently. Make a new workplace sentence using each form.\n\nEXAMPLE ANSWERS\n“The new system improves efficiency.”\n“We have an efficient team.”\n“The team works efficiently.”\n\nWHAT TO DO NEXT\nIf you missed a question, revisit its explanation and name the position clue. If you answered all six correctly, write two original sentences that contrast an adjective and an adverb.\n\nIn class, share one sentence and explain your choice before the teacher ends the session. Outside class, complete the unit in self-study to save your own learning record. Class responses and self-study progress are separate practice records.",
       "order": 10
     },
     {

@@ -1,0 +1,125 @@
+{
+  "projectId": "lightway-course",
+  "baseCommit": "1a3d3501f0fc8e202fd922c62dc1d830535f9204",
+  "mode": "update-existing-documents-only",
+  "requiredPreflight": "Read only these curriculum documents; compare with repositoryBaseline, preserve all other fields, back up actual values and use updateTime preconditions in a single atomic commit. Stop for missing or independently modified documents.",
+  "patches": [
+    {
+      "path": "units/toeic-reading-parts-of-speech",
+      "patch": {
+        "description": "A 35–45 minute A2–B1 lesson: identify nouns, verbs, adjectives and adverbs; use sentence-position clues; choose and explain word forms in original workplace sentences. Includes six scored practice questions and a review."
+      },
+      "repositoryBaseline": {
+        "description": "Recognize how nouns, verbs, adjectives and adverbs function in TOEIC sentences."
+      }
+    },
+    {
+      "path": "activities/pos-01",
+      "patch": {
+        "title": "Four word classes, four jobs",
+        "instructions": "Start here. In class, discuss the examples with a partner. Studying alone, say your answers aloud before moving on.",
+        "content": "GOALS\nBy the end, you can name the job a word does, use nearby words to choose its form, and explain your choice in a workplace sentence. Allow 35–45 minutes for all ten activities.\n\nWARM-UP\n“The assistant organized the files quickly.” Which word names a person? Which expresses the action? Which tells you how the action happened?\n\nNOUN: a person, thing or idea — assistant, file, efficiency.\nVERB: an action or state — organize, work, seem.\nADJECTIVE: describes a noun or follows a linking verb — an efficient assistant; the assistant is efficient.\nADVERB: modifies a verb, adjective or another adverb — works efficiently; extremely efficient.\n\nWarm-up check: assistant = noun; organized = verb; quickly = adverb. Meaning helps, but the word’s position gives you a useful grammar clue."
+      },
+      "repositoryBaseline": {
+        "title": "Four jobs words can do",
+        "instructions": "Read the overview and notice where each word class appears.",
+        "content": "NOUNS name people, places, things or ideas. VERBS express actions or states. ADJECTIVES describe nouns. ADVERBS describe verbs, adjectives or other adverbs."
+      }
+    },
+    {
+      "path": "activities/pos-02",
+      "patch": {
+        "title": "Read a workplace update",
+        "instructions": "Read the original memo. Find a noun, a verb, an adjective and an adverb. Then compare your choices with the worked examples.",
+        "content": "TEAM UPDATE\nOur efficient assistant organized the new files yesterday. She checked every folder carefully. Her careful review improved the accuracy of the records. The system now works efficiently.\n\nWORKED EXAMPLES\n“assistant” is a noun: it names the person doing the work.\n“organized” is a verb: it tells us what the assistant did.\n“efficient” is an adjective: it describes assistant.\n“carefully” is an adverb: it describes how she checked.\n“accuracy” is a noun: it names the quality that improved.\n\nWORD FAMILY\nefficiency (noun) → efficient (adjective) → efficiently (adverb). Do not pick a form just because you recognize its meaning: choose the form that fits its job.\n\nNotice: careful describes the noun review, while carefully describes the verb checked. A word ending can help, but it is not proof: friendly is usually an adjective, and fast can be an adjective or an adverb."
+      },
+      "repositoryBaseline": {
+        "title": "See the pattern",
+        "instructions": "Read the sentence and compare the related word forms.",
+        "content": "The efficient assistant organized the files quickly. Assistant is a noun; organized is a verb; efficient is an adjective; quickly is an adverb."
+      }
+    },
+    {
+      "path": "activities/pos-03",
+      "patch": {
+        "explanation": "Confidently tells us how the manager spoke, so it modifies the verb and is an adverb. Manager is the noun and spoke is the verb. An adjective would describe the manager: “The confident manager spoke.”"
+      },
+      "repositoryBaseline": {
+        "explanation": "Confidently describes how the manager spoke, so it modifies the verb and is an adverb."
+      }
+    },
+    {
+      "path": "activities/pos-04",
+      "patch": {
+        "explanation": "Promptly is the adverb describing how the team responds. Prompt is an adjective (“a prompt reply”); promptness is a noun (“their promptness”); prompted is a verb form. The blank modifies responds, so promptly fits."
+      },
+      "repositoryBaseline": {
+        "explanation": "The blank modifies the verb responds, so the adverb promptly is required."
+      }
+    },
+    {
+      "path": "activities/pos-05",
+      "patch": {
+        "explanation": "Efficiency is the noun naming what has improved. Office modifies that noun. Efficient is an adjective and efficiently is an adverb; neither can serve as the object of improved here. The complete phrase is “improved office efficiency.”"
+      },
+      "repositoryBaseline": {
+        "explanation": "After the verb improved, the sentence needs the noun efficiency."
+      }
+    },
+    {
+      "path": "activities/pos-06",
+      "patch": {
+        "explanation": "Approval is a noun and is the object of obtain; written describes that noun. Approve is a verb, approved is a past-tense/participle form, and approvingly is an adverb. Use the position clue: obtain + adjective + noun."
+      },
+      "repositoryBaseline": {
+        "explanation": "The adjective written needs to modify a noun. Approval is the noun form."
+      }
+    },
+    {
+      "path": "activities/pos-07",
+      "patch": {
+        "explanation": "Completely is the adverb modifying the adjective satisfied. Complete is an adjective, which can describe a noun (“a complete report”) but cannot modify satisfied here. The corrected sentence is “The board was completely satisfied with the quarterly results.”"
+      },
+      "repositoryBaseline": {
+        "explanation": "An adverb is needed to modify the adjective satisfied."
+      }
+    },
+    {
+      "path": "activities/pos-08",
+      "patch": {
+        "title": "Review the clues, avoid the traps",
+        "instructions": "Pause and explain one rule using your own example. In class, share it with a partner. Alone, write or say a sentence before continuing.",
+        "content": "A FOUR-STEP CHECK\n1. Read the whole sentence for meaning.\n2. Find the words immediately before and after the blank.\n3. Decide the job: noun, verb, adjective or adverb.\n4. Choose the form and read the completed sentence again.\n\nPOSITION CLUES\nArticle + adjective + noun: “an efficient team.”\nVerb + noun object: “improve efficiency.”\nAdverb + adjective: “extremely efficient.”\nVerb + adverb: “work efficiently.”\nLinking verb + adjective: “The team seems efficient.”\n\nCOMMON TRAPS\nAn article does not always sit directly before a noun: an extremely efficient team is also correct.\nNot every -ly word is an adverb: a friendly colleague uses an adjective.\nAfter be or seem, describe the subject: “The report is complete,” not “The report is completely.”\n\nSELF-CHECK\nExplain the difference between “a careful review” and “review carefully.” Answer: careful describes the noun review; carefully describes the action review."
+      },
+      "repositoryBaseline": {
+        "title": "Mini review: position clues",
+        "instructions": "Use position clues when you are unsure of a word form.",
+        "content": "Before a noun, expect an adjective. After an article, expect a noun or adjective + noun. After a linking verb, expect an adjective. To describe an action, use an adverb."
+      }
+    },
+    {
+      "path": "activities/pos-09",
+      "patch": {
+        "instructions": "Final check: choose the form that fits, then explain which word the blank describes.",
+        "explanation": "Effective is the adjective describing the noun campaign. Extremely is an adverb modifying effective. Effect and effectiveness are nouns; effectively is an adverb. The pattern is adverb + adjective + noun: “an extremely effective campaign.”"
+      },
+      "repositoryBaseline": {
+        "instructions": "Choose the best answer.",
+        "explanation": "The blank describes the noun campaign, so the adjective effective is correct."
+      }
+    },
+    {
+      "path": "activities/pos-10",
+      "patch": {
+        "title": "Unit review and next practice",
+        "instructions": "Review the six scored answers and their explanations. In self-study, mark this final activity complete to see your first-attempt score.",
+        "content": "CAN YOU DO THESE THREE THINGS?\n• Identify the job a word performs in a sentence.\n• Use the position of a blank to choose a word form.\n• Explain why an answer fits instead of relying only on its ending.\n\nRETRIEVAL CHECK\nWithout looking back, name the noun, adjective and adverb in this family: efficiency → efficient → efficiently. Make a new workplace sentence using each form.\n\nEXAMPLE ANSWERS\n“The new system improves efficiency.”\n“We have an efficient team.”\n“The team works efficiently.”\n\nWHAT TO DO NEXT\nIf you missed a question, revisit its explanation and name the position clue. If you answered all six correctly, write two original sentences that contrast an adjective and an adverb.\n\nIn class, share one sentence and explain your choice before the teacher ends the session. Outside class, complete the unit in self-study to save your own learning record. Class responses and self-study progress are separate practice records."
+      },
+      "repositoryBaseline": {
+        "title": "Lesson summary",
+        "instructions": "Check that you can apply all four ideas before continuing.",
+        "content": "You can now identify the four major word classes, use sentence position as a clue, select the correct related word form, and explain why an answer fits a TOEIC sentence."
+      }
+    }
+  ]
+}

@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "seed": "node scripts/seed.mjs",
     "smoke": "node scripts/smoke.mjs",
-    "firebase:deploy": "firebase deploy"
+    "firebase:deploy": "firebase deploy",
+    "test": "node --test tests/learning.test.mjs",
+    "test:pilot": "firebase emulators:exec --project demo-lightway-pilot --config firebase.emulators.json --only auth,firestore \"node scripts/test-pilot.mjs\""
   },
   "dependencies": {
     "firebase": "^12.4.0",
@@ -20,6 +22,7 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@types/node": "^24.7.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",

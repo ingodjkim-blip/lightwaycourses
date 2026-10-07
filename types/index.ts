@@ -90,6 +90,7 @@ export interface UnitProgress {
   completedActivityIds: string[];
   lastActivityId: string;
   score: number;
+  answers?: Record<string, string>;
   updatedAt?: unknown;
 }
 
