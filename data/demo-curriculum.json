@@ -12,9 +12,9 @@
     { "id": "toeic-writing", "courseId": "toeic", "name": "Writing", "order": 4 },
     { "id": "toeic-grammar", "courseId": "toeic", "name": "Grammar & Vocabulary", "order": 5 },
     { "id": "ielts-listening", "courseId": "ielts", "name": "Listening", "order": 1 },
-    { "id": "ielts-writing", "courseId": "ielts", "name": "Writing", "order": 2 },
+    { "id": "ielts-speaking", "courseId": "ielts", "name": "Speaking", "order": 2 },
     { "id": "ielts-reading", "courseId": "ielts", "name": "Reading", "order": 3 },
-    { "id": "ielts-speaking", "courseId": "ielts", "name": "Speaking", "order": 4 },
+    { "id": "ielts-writing", "courseId": "ielts", "name": "Writing", "order": 4 },
     { "id": "ielts-grammar", "courseId": "ielts", "name": "Grammar & Vocabulary", "order": 5 },
     { "id": "vstep-listening", "courseId": "vstep", "name": "Listening", "order": 1 },
     { "id": "vstep-speaking", "courseId": "vstep", "name": "Speaking", "order": 2 },
@@ -47,17 +47,6 @@
       "order": 1,
       "activityCount": 1,
       "aiPracticeConfig": { "enabled": false, "level": "B1-B2", "targets": ["skimming", "main ideas"], "allowedActivityTypes": ["reading", "short_answer"], "difficultyRange": "intermediate" }
-    },
-    {
-      "id": "ielts-writing-skills-lesson-1",
-      "courseId": "ielts",
-      "skillId": "ielts-writing",
-      "title": "Lesson 1: Compare, organise and argue",
-      "description": "Academic Writing Task 1 bar charts and a Task 2 opinion essay, with model answers, vocabulary and guided-to-independent practice.",
-      "order": 1,
-      "activityCount": 2,
-      "track": "skills",
-      "aiPracticeConfig": { "enabled": false, "level": "B1-B2", "targets": ["data comparison", "overview writing", "opinion development", "coherence"], "allowedActivityTypes": ["writing_prompt"], "difficultyRange": "intermediate-advanced" }
     },
     {
       "id": "vstep-speaking-introduction",
@@ -217,28 +206,6 @@
       "instructions": "Read the title and first sentence of each paragraph to predict the main idea.",
       "content": "Urban gardens are becoming an important part of city planning. They provide fresh food, cool public spaces and places where neighbors can meet.",
       "order": 1
-    },
-    {
-      "id": "ielts-writing-skills-lesson-1-task-1",
-      "courseId": "ielts",
-      "skillId": "ielts-writing",
-      "unitId": "ielts-writing-skills-lesson-1",
-      "type": "writing_prompt",
-      "title": "Part A: Academic Writing Task 1",
-      "instructions": "Study two complete bar-chart models, build the key language, then complete guided and independent practice.",
-      "content": "Write at least 150 words. Select the main features, include a clear overview and support comparisons with accurate figures.",
-      "order": 1
-    },
-    {
-      "id": "ielts-writing-skills-lesson-1-task-2",
-      "courseId": "ielts",
-      "skillId": "ielts-writing",
-      "unitId": "ielts-writing-skills-lesson-1",
-      "type": "writing_prompt",
-      "title": "Part B: Writing Task 2",
-      "instructions": "Study two complete opinion-essay models, build the key language, then plan and write your own response.",
-      "content": "Write at least 250 words. State a clear position, develop relevant reasons and support them with examples.",
-      "order": 2
     },
     {
       "id": "vstep-introduction-01",

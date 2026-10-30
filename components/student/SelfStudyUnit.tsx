@@ -4,16 +4,10 @@ import { useMemo, useState } from "react";
 import { arrayUnion, doc, increment, serverTimestamp, setDoc } from "firebase/firestore";
 import { ArrowLeft, Check, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { ActivityRenderer } from "@/components/activity/ActivityRenderer";
-import { IELTSWritingLesson } from "@/components/student/IELTSWritingLesson";
 import { db } from "@/lib/firebase";
 import type { CurriculumData, Unit, UnitProgress, UserProfile } from "@/types";
 
 export function SelfStudyUnit({ profile, curriculum, unit, progress, onBack }: { profile: UserProfile; curriculum: CurriculumData; unit: Unit; progress?: UnitProgress; onBack: () => void }) {
-  if (unit.id === "ielts-writing-skills-lesson-1") return <IELTSWritingLesson profile={profile} unit={unit} progress={progress} onBack={onBack} />;
-  return <StandardSelfStudyUnit profile={profile} curriculum={curriculum} unit={unit} progress={progress} onBack={onBack} />;
-}
-
-function StandardSelfStudyUnit({ profile, curriculum, unit, progress, onBack }: { profile: UserProfile; curriculum: CurriculumData; unit: Unit; progress?: UnitProgress; onBack: () => void }) {
   const activities = useMemo(() => curriculum.activities.filter((item) => item.unitId === unit.id).sort((a, b) => a.order - b.order), [curriculum.activities, unit.id]);
   const initialIndex = Math.max(0, activities.findIndex((item) => item.id === progress?.lastActivityId));
   const [index, setIndex] = useState(initialIndex);

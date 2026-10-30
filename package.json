@@ -9,7 +9,6 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "seed": "node scripts/seed.mjs",
-    "publish:ielts": "node scripts/publish-ielts-pilot.mjs",
     "smoke": "node scripts/smoke.mjs",
     "firebase:deploy": "firebase deploy"
   },
