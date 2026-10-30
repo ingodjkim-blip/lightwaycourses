@@ -78,18 +78,18 @@ export const task1Practices = [
   },
 ] satisfies Array<{ title: string; chart: ChartData; prompt: string }>;
 
-export const task2Prompt = "Some people believe that universities should focus mainly on practical skills that prepare students for employment. Others think that a broad academic education is equally important. To what extent do you agree or disagree?";
+export const task2Prompt = "Universities should give practical employment skills priority over a broad academic education. To what extent do you agree or disagree?";
 
 export const task2Models: WritingModel[] = [
   {
     title: "Model 1: Practical preparation with a broad foundation",
     prompt: task2Prompt,
     paragraphs: [
-      "Universities are often expected to help graduates enter the labour market, so it is understandable that many people want courses to emphasise practical skills. I agree that employment preparation should be a central part of higher education; however, it should be built on a broad academic foundation rather than replacing it.",
+      "Universities are often expected to help graduates enter the labour market, so it is understandable that many people want courses to emphasise practical skills. I partly agree with giving employment preparation priority within degree programmes, but only when it is built on a broad academic foundation rather than used to replace that foundation.",
       "Practical training gives students a smoother transition into work. Engineering students, for example, benefit from using current design software, while business students need opportunities to analyse realistic cases and present recommendations. Such experience allows graduates to demonstrate that they can apply knowledge, collaborate under pressure and meet professional standards. It can also improve employability because companies spend less time teaching basic workplace procedures. For this reason, universities should maintain close links with employers and offer internships, project work and career guidance.",
       "Nevertheless, narrowly vocational programmes can become outdated quickly. Specific software, regulations and business models change, whereas the capacity to evaluate evidence, learn independently and communicate complex ideas remains valuable. A broad education also exposes students to perspectives outside their main subject. A computer science student who studies ethics may make more responsible decisions about personal data, while a future manager who understands history and society may recognise the wider consequences of a commercial decision. These transferable skills help graduates adapt when their first occupation changes or disappears.",
       "In my view, the most effective degree combines both purposes. Universities should teach the concepts and critical habits that support lifelong learning, then give students repeated chances to use them in authentic tasks. Assessment could include research essays alongside team projects designed with local organisations. This balanced approach would not turn universities into short-term training centres, but it would ensure that academic knowledge has a practical application.",
-      "In conclusion, I largely agree that universities must prepare students for employment, yet this aim is best achieved through practical experience supported by a broad education. Graduates need immediate competence, but they also need the intellectual flexibility to keep developing throughout their careers.",
+      "In conclusion, I agree that practical employment skills deserve limited priority in the design of degree programmes, yet this aim is best achieved through experience supported by a broad education. Graduates need immediate competence, but they also need the intellectual flexibility to keep developing throughout their careers.",
     ],
   },
   {
