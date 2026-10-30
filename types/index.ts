@@ -21,7 +21,7 @@ export interface UserProfile {
 
 export interface Course { id: string; name: string; code: string; description: string; color: string; order: number; }
 export interface Skill { id: string; courseId: string; name: string; order: number; }
-export interface Unit { id: string; courseId: string; skillId: string; title: string; description: string; order: number; activityCount: number; aiPracticeConfig: { enabled: boolean; level: string; targets: string[]; allowedActivityTypes: ActivityType[]; difficultyRange: string; }; }
+export interface Unit { id: string; courseId: string; skillId: string; title: string; description: string; order: number; activityCount: number; track?: "overall" | "skills"; aiPracticeConfig: { enabled: boolean; level: string; targets: string[]; allowedActivityTypes: ActivityType[]; difficultyRange: string; }; }
 export interface Activity {
   id: string;
   courseId: string;
