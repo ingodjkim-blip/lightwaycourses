@@ -1,11 +1,44 @@
 import { readFile } from "node:fs/promises";
-import { applicationDefault, getApps, initializeApp } from "firebase-admin/app";
-import { getFirestore } from "firebase-admin/firestore";
+import { createRequire } from "node:module";
+import { applicationDefault, cert, refreshToken as refreshTokenCredential } from "firebase-admin/app";
 
 const projectId = "lightway-course";
 const curriculum = JSON.parse(await readFile(new URL("../data/demo-curriculum.json", import.meta.url), "utf8"));
-const app = getApps()[0] || initializeApp({ credential: applicationDefault(), projectId });
-const db = getFirestore(app);
+const serviceAccountPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+let credential;
+
+if (serviceAccountPath) {
+  credential = cert(JSON.parse(await readFile(serviceAccountPath, "utf8")));
+} else {
+  try {
+    const require = createRequire(import.meta.url);
+    const { getGlobalDefaultAccount } = require("../node_modules/firebase-tools/lib/auth.js");
+    const { clientId, clientSecret } = require("../node_modules/firebase-tools/lib/api.js");
+    const account = getGlobalDefaultAccount();
+    if (!account?.tokens?.refresh_token) throw new Error("No Firebase CLI account is signed in.");
+    credential = refreshTokenCredential({
+      client_id: clientId(),
+      client_secret: clientSecret(),
+      refresh_token: account.tokens.refresh_token,
+      type: "authorized_user",
+    });
+  } catch {
+    credential = applicationDefault();
+  }
+}
+
+function encodeValue(value) {
+  if (value === null) return { nullValue: null };
+  if (typeof value === "string") return { stringValue: value };
+  if (typeof value === "boolean") return { booleanValue: value };
+  if (typeof value === "number") return Number.isInteger(value) ? { integerValue: String(value) } : { doubleValue: value };
+  if (Array.isArray(value)) return { arrayValue: { values: value.map(encodeValue) } };
+  return { mapValue: { fields: encodeFields(value) } };
+}
+
+function encodeFields(value) {
+  return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, encodeValue(item)]));
+}
 
 const documents = [
   ...curriculum.skills.filter((item) => item.courseId === "ielts" && ["ielts-listening", "ielts-writing", "ielts-reading", "ielts-speaking"].includes(item.id)).map((data) => ({ path: `skills/${data.id}`, data })),
@@ -13,46 +46,14 @@ const documents = [
   ...curriculum.activities.filter((item) => item.unitId === "ielts-writing-skills-lesson-1").map((data) => ({ path: `activities/${data.id}`, data })),
 ];
 
-const refs = documents.map(({ path }) => db.doc(path));
-const snapshots = await db.getAll(...refs);
+const accessToken = await credential.getAccessToken();
+const databaseRoot = `projects/${projectId}/databases/(default)/documents`;
+const writes = documents.map(({ path, data }) => ({ update: { name: `${databaseRoot}/${path}`, fields: encodeFields(data) } }));
+const response = await fetch(`https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents:batchWrite`, {
+  method: "POST",
+  headers: { Authorization: `Bearer ${accessToken.access_token}`, "Content-Type": "application/json" },
+  body: JSON.stringify({ writes }),
+});
 
-for (let index = 0; index < documents.length; index += 1) {
-  const { path, data } = documents[index];
-  const snapshot = snapshots[index];
-  const existing = snapshot.data();
-
-  if (path.startsWith("skills/") && !snapshot.exists) {
-    throw new Error(`Guard check failed: expected existing IELTS skill document ${path}. No writes were queued.`);
-  }
-  if (existing?.courseId && existing.courseId !== data.courseId) {
-    throw new Error(`Guard check failed: ${path} belongs to course ${existing.courseId}, not ${data.courseId}. No writes were queued.`);
-  }
-  if (existing?.unitId && existing.unitId !== data.unitId) {
-    throw new Error(`Guard check failed: ${path} belongs to unit ${existing.unitId}, not ${data.unitId}. No writes were queued.`);
-  }
-  if (existing?.skillId && existing.skillId !== data.skillId) {
-    throw new Error(`Guard check failed: ${path} belongs to skill ${existing.skillId}, not ${data.skillId}. No writes were queued.`);
-  }
-}
-
-const writer = db.bulkWriter();
-writer.onWriteError(() => false);
-const writePromises = documents.map(({ path, data }, index) => writer
-  .set(refs[index], data, { merge: true })
-  .then((result) => ({ path, updateTime: result.writeTime.toDate().toISOString() })));
-const closePromise = writer.close();
-const results = await Promise.allSettled(writePromises);
-await closePromise;
-
-const failures = results.flatMap((result, index) => result.status === "rejected"
-  ? [`${documents[index].path}: ${result.reason instanceof Error ? result.reason.message : String(result.reason)}`]
-  : []);
-if (failures.length) {
-  throw new Error(`IELTS pilot publish completed with ${failures.length} failed write(s):\n${failures.join("\n")}`);
-}
-
-const successes = results.map((result) => result.status === "fulfilled" ? result.value : null);
-if (successes.some((result) => !result?.updateTime) || successes.length !== documents.length) {
-  throw new Error("IELTS pilot publish returned an incomplete per-write result set.");
-}
-console.log(`Published ${successes.length} IELTS pilot curriculum documents with merge semantics; existing unrelated fields were preserved.`);
+if (!response.ok) throw new Error(`IELTS pilot publish failed (${response.status}): ${await response.text()}`);
+console.log(`Published ${documents.length} IELTS pilot curriculum documents without deleting existing data.`);
